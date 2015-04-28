@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html ng-app="MainApp" ng-controller="MainCtrl">
+<head>
+  <title>Snow Snorkelers</title>
+  <!-- <link rel="stylesheet" href="bower_components/foundation/css/foundation.css" /> -->
+  <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css">
+  <link href='http://fonts.googleapis.com/css?family=Original+Surfer' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles/css/main.css">
+</head>
+<body>
+  <!-- Facebook login SDK setup -->
+  <script>
+  // This is called with the results from from FB.getLoginStatus().
+  function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI();
+    } else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+    } else {
+      // The person is not logged into Facebook, so we're not sure if
+      // they are logged into this app or not.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into Facebook.';
+    }
+  }
+
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '395259690629230',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v2.2'
+    });
+    // Now that we've initialized the JavaScript SDK, we call 
+    // FB.getLoginStatus().  This function gets the state of the
+    // person visiting this page and can return one of three states to
+    // the callback you provide.  They can be:
+    //
+    // 1. Logged into your app ('connected')
+    // 2. Logged into Facebook, but not your app ('not_authorized')
+    // 3. Not logged into Facebook and can't tell if they are logged into
+    //    your app or not.
+    //
+    // These three cases are handled in the callback function.
+
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
+    });
+  }
+</script>
+
+<header>
+  <div class="logo">
+    <a ui-sref="nextRun">
+      <!-- <img src="http://lorempixel.com/100/100" alt="Snow Snorkelers">
+      <h3>Snow Snorkelers</h3> -->
+      <span>Snow Snorkelers</span>
+    </a>
+  </div>
+  <nav>
+    <ul>
+      <li><a ui-sref="nextRun">Next Run</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#"><i class="fa fa-facebook-square"></i> Login</a></li>
+      <li>
+        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+        </fb:login-button>
+
+        
+      </li>
+      <li>
+        <div class="custom-button" ng-click="showCreateRunModal()">Create Run</div>
+      </li>
+      <li><div id="status">
+        </div></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="content" ng-cloak>
+  <div class="wrapper" >
+    <div ui-view></div>
+  </div>
+</div>
+
+<footer>
+  <span>Newman's Snow Snorkelers Ltd</span>
+</footer>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/firebase/firebase.js"></script>
+<script src="bower_components/angularfire/dist/angularfire.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0N8daUH0Hxt0cmPVDvzjWV2lYs6PMrlU"></script>
+<script src="scripts/main.js"></script>
+<script src="scripts/controllers/MainCtrl.js"></script>
+<script src="scripts/controllers/CreateRunCtrl.js"></script>
+<script src="scripts/controllers/DisplayRunCtrl.js"></script>
+<script src="scripts/directives/googleMap.js"></script>
+<script src="scripts/services/RunService.js"></script>
+
+</body>
+</html>

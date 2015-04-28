@@ -1,0 +1,45 @@
+<div class="run" ng-cloak>
+  <h2 ng-show="title"><em>{{ title }}</em></h2>
+  <div class="run-header">
+    <div class="date-container">
+      <div class="date">
+        <h4>{{displayedRun.dateTime | date:'EEE'}}</h4>
+        <h6>{{displayedRun.dateTime | date:'MMM'}} </h6>
+        <h3>{{displayedRun.dateTime | date:'d'}} </h3>
+      </div>
+      <div class="time">{{ displayedRun.dateTime | date:'h:mma' }}</div>
+    </div>
+    <div class="run-header-content-right">
+      <div class="location-name">{{ displayedRun.location.name }}</div>
+      <div class="created-by">- {{ displayedRun.createdBy }}</div>
+      <div class="description" ng-init="collapsed = true;" ng-class="{ 'description-collapsed': collapsed }">{{ displayedRun.note }} </div>
+      <a class="toggle-more" title="Show More" ng-click="collapsed = !collapsed">• • •</a>
+    </div>
+  </div>
+  <google-map location="displayedRun.location"></google-map>
+  <!-- <div class="map"> -->
+    <!-- <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" ng-src="{{ displayedRun.locationUrl }}"></iframe> -->
+    <!-- <google-map location="displayedRun.location"></google-map> -->
+  <!-- </div> -->
+  <div class="details align-left">
+    <div class="attendance">
+      <div class="confirmed">
+        <i class="fa fa-check-circle"></i> 4 Confirmed
+      </div>
+      <div class="tentative">
+        <i class="fa fa-question-circle"></i> 2 Tentative
+      </div>
+    </div>
+    <div class="comments">
+      <input type="text" placeholder="Comment...">
+      <ul>
+        <li><i class="fa fa-user"></i> This is awesome!</li>
+        <li><i class="fa fa-user"></i> You're right
+          <ul>
+            <li><i class="fa fa-user"></i> I also agree</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

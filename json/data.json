@@ -1,0 +1,22 @@
+{
+  "event": {
+    "createdTimestamp": "",
+    "location": {
+      "name": "",
+      "mapUrl": ""
+    },
+    "date": "",
+    "time": "",
+    "sponsor": "",
+    "attendance": {
+      "confirmed": "",
+      "tentative": ""
+    },
+    "comments": [{
+      "author": "",
+      "comment": "",
+      "date": "",
+      "replies": []
+    }]
+  }
+}

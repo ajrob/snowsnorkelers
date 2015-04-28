@@ -1,0 +1,14 @@
+<div class="right-fixed">
+  <div ui-view></div>
+</div>
+<div class="hero"></div>
+<div class="run-list">
+  <h2><em>Upcoming Runs</em></h2>
+  <div class="run-condensed" ng-repeat="run in upcomingRuns">
+    <a ui-sref="upcoming.run({id: run.$id})">
+      <span> {{ run.dateTime | date:'MM/dd/yyyy' }} </span>
+      <span>{{ run.dateTime | date:'h:mma' }}</span>
+      <span>{{ run.location.name }}</span>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<!-- <div ng-controller="CreateRunCtrl"> -->
+  <div class="create-run">
+    <form name="runForm" ng-submit="createRun()">
+      <div class="run-header">
+        <h2>Create a run</h2>
+      </div>
+      <div class="run-body">
+        <dl class="dl-horizontal">
+          <dt>Date</dt>
+          <dd>
+            <p class="input-group">
+              <input type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy" ng-model="tempTime" is-open="opened" min-date="minDate">
+              <span class="input-group-btn">
+                <button class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>
+            
+          </dd>
+          <dt>Time</dt>
+          <dd>
+            <timepicker ng-model="tempTime" ng-change="changed()" hour-step="hrStep" minute-step="minStep" show-meridian="ismeridian"></timepicker>
+            <!-- <h4>{{ run.time | date:'shortTime'}}</h4> -->
+          </dd>
+          <dt>Location</dt>
+          <dd>
+            <select ng-model="selectedLocation" ng-options="location.name for location in locations" required>
+              <option value="">-- Choose Location --</option>
+            </select>
+            <span class="btn btn-success" ng-init="isNewLocationVisible=false" ng-model="isNewLocationVisible" ng-click="showNewLocation()">Add New</span>
+            
+            <div class="new-location" ng-class="{ 'has-error': hasSaveError }" ng-show="isNewLocationVisible">
+              <h3>New Location</h3>
+              <input type="text" class="form-control" placeholder="Location name" ng-model="newLocationName">
+              <label class="control-label" ng-show="hasSaveError"><em>Please enter a location name</em></label>
+              <div id="map-new-location" style="height: 250px; width: 100%;"></div>
+              <span class="btn btn-default" ng-click="showNewLocation()">Cancel</span>
+              <span class="btn btn-success" ng-click="saveNewLocation(newLocationName)">Save New Location</span>
+            </div>
+          </dd>
+          <dt>Notes<br><small>(optional)</small></dt>
+          <dt></dt>
+          <dd>
+            <textarea name="note" id="note" class="form-control" ng-model="run.note"></textarea>
+          </dd>
+        </dl>
+      </div>
+      <div class="run-footer">
+        <button class="btn btn-success pull-right" type="submit">Create</button>
+        <button class="btn btn-danger" ng-click="cancel()">Discard</button>
+      </div>
+    </form>
+    {{run}}
+  </div>
+<!-- </div> -->

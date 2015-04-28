@@ -1,0 +1,383 @@
+$runWidth: 32em;
+// $runBackgroundColor: #27788B;
+$runBackgroundColor: #FFFFFF;
+$backgroundColor: #D9ECEC;
+
+html {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+header {
+  background-color: rgba(255,255,255,0.85);
+  overflow: hidden;
+  height: 50px;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.45);
+
+  ul {
+    float: right;
+    margin: 1em;
+
+    li {
+      display: inline;
+      list-style-type: none;
+      margin: 0 1em 0 0;
+    }
+  }
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+}
+
+.pull-right {
+  float: right;
+}
+
+.logo {
+  float: left;
+  font-family: 'Neucha', sans-serif;
+
+  span {
+    font-size: 3em;
+    color: rgb(21, 109, 140);
+  }
+}
+
+.content {
+  // background-color: rgb(40, 167, 199);
+  background-color: $backgroundColor;
+  padding: 1em 0;
+  position: relative;
+  overflow: auto;
+  padding: 50px 0;
+  height: 100vh;
+
+  a {
+    color: rgb(90, 90, 90);
+  }
+}
+
+// .content::-webkit-scrollbar {
+//   display: none;
+// }
+
+.wrapper {
+  // width: 800px;
+  margin: 0 auto;
+
+  h2 {
+    color: rgb(90, 90, 90);
+    font-weight: lighter;
+    font-size: 3em;
+    margin: 0;
+    padding: 0.5em 0;
+  }
+}
+
+.right-fixed {
+  position: fixed;
+  top: 50px;
+  right: 0px;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: $runWidth;
+  overflow-y: auto;
+}
+
+.run-list {
+  padding-left: 3em;
+}
+
+/******************* Run Stying *******************/
+.description-collapsed {
+  max-height: 2.8em;
+  overflow: hidden;
+}
+.run {
+  // background-color: rgb(0, 129, 160);
+  background-color: $runBackgroundColor;
+  width: 100%;
+  color: rgb(90, 90, 90);
+  margin: 1em auto;
+  border-radius: 2px;
+  text-align: center;
+  box-shadow: 0px 2px 3px 1px rgba(0,0,0,0.4);
+
+  .fix-run & {
+    position: fixed;
+  }
+
+  .run-header {
+    text-align: left;
+    
+    .date-container {
+      vertical-align: top;
+      display: inline-block;
+      text-align: center;
+      color: rgb(21, 108, 139);
+
+      .date {
+        border-radius: 2px;
+        font-size: 2.5em;
+        padding: 0.1em 0.5em;
+        width: 2.8em;
+        background: linear-gradient(#9ABEBE 41%, #AFD7D7 41%);
+
+        h4, h6 {
+          margin: 0.2em 0 0 0;
+        }
+
+        h3 {
+          font-size: 1.6em;
+          font-weight: lighter;
+          margin: 0;
+        }
+      }
+
+      .time {
+        font-size: 2em;
+        font-weight: 100;
+      }
+    }
+    
+    
+    .run-header-content-right {
+      text-align: left;
+      display: inline-block;
+      padding: 0 0 0 1em;
+      width: 60%;
+
+
+      .location-name {
+        font-size: 2em;
+      }
+
+      .created-by {
+        font-weight: lighter;
+        font-style: italic;
+        font-size: 1em;
+        text-align: right;
+      }
+
+      .description {
+        font-weight: 200;
+        margin-bottom: 0.5em;
+      }
+
+      .toggle-more {
+        cursor: pointer;
+        text-decoration: none;
+        padding: 0.25em 0.5em;
+        color: white;
+        background-color: $runBackgroundColor - 30;
+
+        &:hover {
+          // background-color: rgb(29, 85, 105);
+          background-color: $runBackgroundColor - 50;
+        }
+      }
+    }
+  }
+  
+  .map {
+    height: 20em;
+  }
+
+  // .location {
+  //   font-size: 2em;
+  //   margin: 5px 0;
+
+  //   .location-name {
+  //     padding: 0.5em 0;
+  //   }
+
+  //   .map {
+  //     background-color: gray;
+  //     height: 5em;
+  //     box-shadow: inset 0px 9px 6px -4px rgba(0,0,0,0.35);
+
+  //     iframe {
+  //       width: 100%;
+  //       height: 100%;
+  //     }
+  //   }
+  // }
+
+  // .time {
+  //   font-size: 2.5em;
+  //   margin: 5px 0;
+  //   padding: 0.5em 0;
+  // }
+
+  .details {    
+    margin: 1em 0 0 1em;
+    padding: 0 0 1.25em 0;
+
+    // .created-by {
+    //   margin: 0 0 1.25em 0;
+    //   font-weight: lighter;
+    //   font-size: 0.85em;
+    // }
+
+    .attendance {
+      margin: 0 0 1.25em 0;
+
+      .fa-check-circle{
+        color: rgb(41, 255, 0);
+      }
+      .fa-question-circle {
+        color: yellow;
+      }
+    }
+
+    .comments {
+
+      ul {
+        list-style-type: none;
+
+        li {
+          text-decoration: none;
+        }
+      }
+
+      >ul {
+        padding: 0;
+      }
+    }
+  }
+}
+/******************* End Run Stying *******************/
+
+
+/******************* Next Run Page Stying *******************/
+.run-container {
+  margin: 0em 17em;
+
+  h2 {
+    text-align: center;
+  }
+  .prev-nav {
+    font-weight: 200;
+    font-size: 1.3em;
+    color: rgb(97,97,97);
+  }
+  .next-nav {
+    float: right;
+    font-weight: 200;
+    font-size: 1.3em;
+    color: rgb(97,97,97);
+  }
+}
+
+.hero {
+  background-image: url('../../mountains_wide.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 281px;
+}
+
+/******************* End Next Run Stying *******************/
+
+.run-sidebar {
+  width: 32em;
+  float: right;
+  margin-right: 3em;
+}
+
+.run-condensed {
+  padding: 1em;
+  margin: 1em ($runWidth + 8) 1em 1em;
+  border-radius: 2px;
+  border-bottom: ($backgroundColor - 10) solid 2px;
+  background: $backgroundColor - 5;
+
+  &:hover {
+    background: $backgroundColor - 10;
+    border-bottom: ($backgroundColor - 15) solid 2px;
+  }
+}
+
+.align-left {
+  text-align: left;
+}
+
+.custom-button {
+  background-color: #70E45A;
+  color: #2B879E;
+  display: inline;
+  padding: 8px 15px;
+  border-radius: 3px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+
+// Run modal window
+.dl-horizontal {
+  dt {
+    margin-top: 7px;
+    padding-bottom: 10px;
+  }
+  dd {
+    margin-top: 7px;
+    padding-bottom: 10px;
+  }
+  input {
+    line-height: 2em;
+  }
+}
+
+.run-body {
+  overflow-y: auto;
+  padding: 15px;
+}
+
+.run-header {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+  h2 {
+    color: rgb(52, 52, 52);
+    text-align: left;
+    font-weight: bold;
+    font-size: 2em;
+  }
+}
+
+.run-footer {
+  overflow: auto;
+
+  button {
+    margin: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .dl-horizontal {
+  dt {
+    margin-top: 0px;
+    padding-bottom: 0px;
+  }
+  dd {
+    margin-top: 0px;
+    padding-bottom: 15px;
+  }
+}
+}
