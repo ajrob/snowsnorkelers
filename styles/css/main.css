@@ -68,9 +68,6 @@ footer {
   width: 32em;
   overflow-y: auto; }
 
-.run-list {
-  padding-left: 3em; }
-
 /******************* Run Stying *******************/
 .description-collapsed {
   max-height: 2.8em;
@@ -112,14 +109,14 @@ footer {
       text-align: left;
       display: inline-block;
       padding: 0 0 0 1em;
-      width: 60%; }
+      width: 40%; }
       .run .run-header .run-header-content-right .location-name {
         font-size: 2em; }
       .run .run-header .run-header-content-right .created-by {
         font-weight: lighter;
         font-style: italic;
         font-size: 1em;
-        text-align: right; }
+        margin: 0 0 0 1em; }
       .run .run-header .run-header-content-right .description {
         font-weight: 200;
         margin-bottom: 0.5em; }
@@ -128,7 +125,8 @@ footer {
         text-decoration: none;
         padding: 0.25em 0.5em;
         color: white;
-        background-color: #e1e1e1; }
+        background-color: #e1e1e1;
+        display: inline; }
         .run .run-header .run-header-content-right .toggle-more:hover {
           background-color: #cdcdcd; }
   .run .map {
@@ -155,15 +153,17 @@ footer {
   margin: 0em 17em; }
   .run-container h2 {
     text-align: center; }
-  .run-container .prev-nav {
-    font-weight: 200;
-    font-size: 1.3em;
-    color: #616161; }
-  .run-container .next-nav {
-    float: right;
-    font-weight: 200;
-    font-size: 1.3em;
-    color: #616161; }
+
+.left-nav {
+  font-weight: 200;
+  font-size: 1.3em;
+  color: #616161; }
+
+.right-nav {
+  float: right;
+  font-weight: 200;
+  font-size: 1.3em;
+  color: #616161; }
 
 .hero {
   background-image: url("../../mountains_wide.png");
@@ -173,13 +173,11 @@ footer {
 
 /******************* End Next Run Stying *******************/
 .run-sidebar {
-  width: 32em;
-  float: right;
-  margin-right: 3em; }
+  display: none; }
 
 .run-condensed {
   padding: 1em;
-  margin: 1em 40em 1em 1em;
+  margin: 1em;
   border-radius: 2px;
   border-bottom: #cfe2e2 solid 2px;
   background: #d4e7e7; }

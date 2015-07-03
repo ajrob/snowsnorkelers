@@ -100,10 +100,6 @@ footer {
   overflow-y: auto;
 }
 
-.run-list {
-  padding-left: 3em;
-}
-
 /******************* Run Stying *******************/
 .description-collapsed {
   max-height: 2.8em;
@@ -161,7 +157,7 @@ footer {
       text-align: left;
       display: inline-block;
       padding: 0 0 0 1em;
-      width: 60%;
+      width: 40%;
 
 
       .location-name {
@@ -172,7 +168,7 @@ footer {
         font-weight: lighter;
         font-style: italic;
         font-size: 1em;
-        text-align: right;
+        margin: 0 0 0 1em;
       }
 
       .description {
@@ -186,6 +182,7 @@ footer {
         padding: 0.25em 0.5em;
         color: white;
         background-color: $runBackgroundColor - 30;
+        display: inline;
 
         &:hover {
           // background-color: rgb(29, 85, 105);
@@ -272,17 +269,19 @@ footer {
   h2 {
     text-align: center;
   }
-  .prev-nav {
+  
+}
+
+.left-nav {
     font-weight: 200;
     font-size: 1.3em;
     color: rgb(97,97,97);
   }
-  .next-nav {
-    float: right;
-    font-weight: 200;
-    font-size: 1.3em;
-    color: rgb(97,97,97);
-  }
+.right-nav {
+  float: right;
+  font-weight: 200;
+  font-size: 1.3em;
+  color: rgb(97,97,97);
 }
 
 .hero {
@@ -295,14 +294,15 @@ footer {
 /******************* End Next Run Stying *******************/
 
 .run-sidebar {
-  width: 32em;
-  float: right;
-  margin-right: 3em;
+  // width: 32em;
+  // float: right;
+  // margin-right: 3em;
+  display: none;
 }
 
 .run-condensed {
   padding: 1em;
-  margin: 1em ($runWidth + 8) 1em 1em;
+  margin: 1em;
   border-radius: 2px;
   border-bottom: ($backgroundColor - 10) solid 2px;
   background: $backgroundColor - 5;

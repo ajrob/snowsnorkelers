@@ -72,7 +72,7 @@ angular.module('MainApp')
         };
       },
       controller: function ($scope) {
-        console.log($scope.location);
+        // console.log($scope.location);
       }
     };
   });

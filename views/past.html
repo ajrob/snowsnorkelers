@@ -1,15 +1,13 @@
-<div class="hero"></div>
-<div class="run-list">
-  <h2><em>Past Runs</em></h2>
-  <div class="run-sidebar" ui-view></div>
-  <div class="wrap">
-    <a ui-sref="past.run({id: run.$id})" ng-repeat="run in pastRuns | orderBy:'dateTime':true">
-      <div class="run-condensed" >
-        <span>{{run.dateTime | date:'MM/dd/yyyy'}}</span>
-        <span>{{run.dateTime | date:'h:mma'}}</span>
-        <span>{{run.location.name}}</span>
-        <span> --> Created by {{run.createdBy}}</span>
-      </div>
-    </a>
+<a class="right-nav" ui-sref="upcoming">Upcoming Runs »</a>
+<h2><em>Past Runs</em></h2>
+<div class="wrap">
+  <div class="run-condensed" ng-init="run.expanded = false" ng-repeat="run in pastRuns | orderBy:'dateTime':true">
+    <div ng-click="run.expanded = !run.expanded">
+      <span>{{run.dateTime | date:'MM/dd/yyyy'}}</span>
+      <span>{{run.dateTime | date:'h:mma'}}</span>
+      <span>{{run.location.name}}</span>
+      <span> --> Created by {{run.createdBy}}</span>
+    </div>
+    <div ng-include="'views/run.fragment.html'" ng-show="run.expanded"></div>
   </div>
 </div>

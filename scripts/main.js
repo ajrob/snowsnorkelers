@@ -3,40 +3,12 @@ angular.module('MainApp', ['firebase', 'ui.router', 'ui.bootstrap'])
     $urlRouterProvider.otherwise('/');
     $stateProvider
       .state('upcoming', {
-        url: '/upcoming',
+        url: '/upcoming-runs',
         templateUrl: 'views/upcoming.html'
       })
-      .state('upcoming.run', {
-        url: 'runs/:id',
-        templateUrl: 'views/run.fragment.html',
-        controller: function ($scope, run) {
-          $scope.displayedRun = run;
-          $scope.title = false;
-        },
-        resolve: {
-          run: function ($stateParams, RunService) {
-            // return $firebase(new Firebase("https://snowsnorkelers.firebaseio.com/events/" + $stateParams.id)).$asObject();
-            return RunService.lookupById($stateParams.id);
-          }
-        }
-      })
       .state('past', {
-        url: '/past',
+        url: '/past-runs',
         templateUrl: 'views/past.html'
-      })
-      .state('past.run', {
-        url: 'runs/:id',
-        templateUrl: 'views/run.fragment.html',
-        controller: function ($scope, run) {
-          $scope.displayedRun = run;
-          $scope.title = false;
-        },
-        resolve: {
-          run: function ($stateParams, RunService) {
-            // return $firebase(new Firebase("https://snowsnorkelers.firebaseio.com/events/" + $stateParams.id)).$asObject();
-            return RunService.lookupById($stateParams.id);
-          }
-        }
       })
       .state('nextRun', {
         url: '/',

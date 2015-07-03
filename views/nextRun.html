@@ -1,14 +1,3 @@
-<div class="hero"></div>
-<div class="run-container">
-  <div ng-repeat="displayedRun in nextRun" ng-include src="'views/run.fragment.html'"></div>
-  <a class="prev-nav" ui-sref="past">« Past Runs</a>
-  <a class="next-nav" ui-sref="upcoming">Upcoming Runs »</a>
-  <style>
-      html, body, #map-canvas {
-        height: 100%;
-        margin: 0px;
-        padding: 0px
-      }
-    </style>
-  <div id="map-canvas"></div>
-</div>
+<a class="left-nav" ui-sref="past">« Past Runs</a>
+<a class="right-nav" ui-sref="upcoming">Upcoming Runs »</a>
+<div ng-repeat="run in nextRun" ng-include src="'views/run.fragment.html'"></div>
